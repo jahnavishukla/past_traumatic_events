@@ -5,55 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trauma Impact Assessment</title>
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
       margin: 0;
       padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
     }
 
+    /* Navigation Bar */
+    .navbar {
+      background-color: #2c3e50;
+      padding: 15px 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar span {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    /* Container */
     .container {
       max-width: 800px;
-      margin: 50px auto;
+      margin: 20px auto;
       padding: 20px;
-      background: #fff;
+      background: white;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      text-align: center;
-      color: #444;
+    /* Intro Section */
+    .intro {
+      margin-bottom: 30px;
     }
 
-    .question {
+    .intro h2 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      line-height: 1.6;
+    }
+
+    /* Form Styles */
+    .form-group {
       margin-bottom: 20px;
     }
 
-    .question label {
+    .form-group label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
+      color: #2c3e50;
     }
 
-    .question .options {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .form-group .options {
       display: flex;
       justify-content: space-between;
       font-size: 14px;
       color: #666;
     }
 
-    .question .options label {
+    .form-group .options label {
       font-weight: normal;
     }
 
+    .consent {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .consent input {
+      margin-right: 10px;
+    }
+
+    /* Button */
     button {
       display: block;
       width: 100%;
       padding: 10px;
-      background: #007bff;
-      color: #fff;
+      background: #3498db;
+      color: white;
       border: none;
       border-radius: 4px;
       font-size: 16px;
@@ -61,9 +116,10 @@
     }
 
     button:hover {
-      background: #0056b3;
+      background: #2980b9;
     }
 
+    /* Report Section */
     .report-section {
       margin-top: 30px;
     }
@@ -79,235 +135,301 @@
       border: 1px solid #ddd;
       border-radius: 4px;
     }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+      margin-top: 30px;
+    }
+
+    footer span {
+      color: #e74c3c;
+    }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <h1>Trauma Impact Assessment <span>by Jahnavi Shukla</span></h1>
+  </div>
+
+  <!-- Container -->
   <div class="container">
-    <h1>Trauma Impact Assessment</h1>
+    <!-- Intro Section -->
+    <div class="intro">
+      <h2>Why We Are Doing This</h2>
+      <p>
+        This assessment is designed to help individuals understand how past traumatic events may be affecting their daily lives. By answering these questions, you can gain insights into your emotional and psychological well-being.
+      </p>
+      <h2>How It Works</h2>
+      <p>
+        You will answer 20 questions about your experiences and feelings. Based on your responses, we will generate a report that assesses the impact of trauma on your life. This report can be shared with a mental health professional for further guidance.
+      </p>
+    </div>
+
+    <!-- Form -->
     <form id="traumaForm">
-      <!-- Questionnaire -->
-      <div class="question">
-        <label>1. How often do you experience flashbacks of the traumatic event?</label>
-        <div class="options">
-          <label><input type="radio" name="q1" value="0"> Never</label>
-          <label><input type="radio" name="q1" value="1"> Rarely</label>
-          <label><input type="radio" name="q1" value="2"> Sometimes</label>
-          <label><input type="radio" name="q1" value="3"> Often</label>
-          <label><input type="radio" name="q1" value="4"> Always</label>
+        <!-- User Details -->
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
         </div>
-      </div>
-
-      <div class="question">
-        <label>2. How much does the event affect your ability to concentrate?</label>
-        <div class="options">
-          <label><input type="radio" name="q2" value="0"> Not at all</label>
-          <label><input type="radio" name="q2" value="1"> Slightly</label>
-          <label><input type="radio" name="q2" value="2"> Moderately</label>
-          <label><input type="radio" name="q2" value="3"> Severely</label>
-          <label><input type="radio" name="q2" value="4"> Extremely</label>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
         </div>
-      </div>
-
-      <div class="question">
-        <label>3. How often do you avoid situations that remind you of the event?</label>
-        <div class="options">
-          <label><input type="radio" name="q3" value="0"> Never</label>
-          <label><input type="radio" name="q3" value="1"> Rarely</label>
-          <label><input type="radio" name="q3" value="2"> Sometimes</label>
-          <label><input type="radio" name="q3" value="3"> Often</label>
-          <label><input type="radio" name="q3" value="4"> Always</label>
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
         </div>
-      </div>
-
-      <div class="question">
-        <label>4. How much does the event affect your sleep?</label>
-        <div class="options">
-          <label><input type="radio" name="q4" value="0"> Not at all</label>
-          <label><input type="radio" name="q4" value="1"> Slightly</label>
-          <label><input type="radio" name="q4" value="2"> Moderately</label>
-          <label><input type="radio" name="q4" value="3"> Severely</label>
-          <label><input type="radio" name="q4" value="4"> Extremely</label>
+        <div class="form-group">
+          <label for="bloodGroup">Blood Group:</label>
+          <select id="bloodGroup" name="bloodGroup" required>
+            <option value="">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
         </div>
-      </div>
-
-      <div class="question">
-        <label>5. How often do you feel emotionally numb?</label>
-        <div class="options">
-          <label><input type="radio" name="q5" value="0"> Never</label>
-          <label><input type="radio" name="q5" value="1"> Rarely</label>
-          <label><input type="radio" name="q5" value="2"> Sometimes</label>
-          <label><input type="radio" name="q5" value="3"> Often</label>
-          <label><input type="radio" name="q5" value="4"> Always</label>
+      
+        <!-- Questions -->
+        <div class="form-group">
+          <label>1. How often do you experience flashbacks of the traumatic event?</label>
+          <div class="options">
+            <label><input type="radio" name="q1" value="0"> Never</label>
+            <label><input type="radio" name="q1" value="1"> Rarely</label>
+            <label><input type="radio" name="q1" value="2"> Sometimes</label>
+            <label><input type="radio" name="q1" value="3"> Often</label>
+            <label><input type="radio" name="q1" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>6. How often do you feel irritable or have angry outbursts?</label>
-        <div class="options">
-          <label><input type="radio" name="q6" value="0"> Never</label>
-          <label><input type="radio" name="q6" value="1"> Rarely</label>
-          <label><input type="radio" name="q6" value="2"> Sometimes</label>
-          <label><input type="radio" name="q6" value="3"> Often</label>
-          <label><input type="radio" name="q6" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>2. How much does the event affect your ability to concentrate?</label>
+          <div class="options">
+            <label><input type="radio" name="q2" value="0"> Not at all</label>
+            <label><input type="radio" name="q2" value="1"> Slightly</label>
+            <label><input type="radio" name="q2" value="2"> Moderately</label>
+            <label><input type="radio" name="q2" value="3"> Severely</label>
+            <label><input type="radio" name="q2" value="4"> Extremely</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>7. How often do you feel hypervigilant (on edge)?</label>
-        <div class="options">
-          <label><input type="radio" name="q7" value="0"> Never</label>
-          <label><input type="radio" name="q7" value="1"> Rarely</label>
-          <label><input type="radio" name="q7" value="2"> Sometimes</label>
-          <label><input type="radio" name="q7" value="3"> Often</label>
-          <label><input type="radio" name="q7" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>3. How often do you avoid situations that remind you of the event?</label>
+          <div class="options">
+            <label><input type="radio" name="q3" value="0"> Never</label>
+            <label><input type="radio" name="q3" value="1"> Rarely</label>
+            <label><input type="radio" name="q3" value="2"> Sometimes</label>
+            <label><input type="radio" name="q3" value="3"> Often</label>
+            <label><input type="radio" name="q3" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>8. How often do you feel detached from others?</label>
-        <div class="options">
-          <label><input type="radio" name="q8" value="0"> Never</label>
-          <label><input type="radio" name="q8" value="1"> Rarely</label>
-          <label><input type="radio" name="q8" value="2"> Sometimes</label>
-          <label><input type="radio" name="q8" value="3"> Often</label>
-          <label><input type="radio" name="q8" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>4. How much does the event affect your sleep?</label>
+          <div class="options">
+            <label><input type="radio" name="q4" value="0"> Not at all</label>
+            <label><input type="radio" name="q4" value="1"> Slightly</label>
+            <label><input type="radio" name="q4" value="2"> Moderately</label>
+            <label><input type="radio" name="q4" value="3"> Severely</label>
+            <label><input type="radio" name="q4" value="4"> Extremely</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>9. How often do you feel guilty about the event?</label>
-        <div class="options">
-          <label><input type="radio" name="q9" value="0"> Never</label>
-          <label><input type="radio" name="q9" value="1"> Rarely</label>
-          <label><input type="radio" name="q9" value="2"> Sometimes</label>
-          <label><input type="radio" name="q9" value="3"> Often</label>
-          <label><input type="radio" name="q9" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>5. How often do you feel emotionally numb?</label>
+          <div class="options">
+            <label><input type="radio" name="q5" value="0"> Never</label>
+            <label><input type="radio" name="q5" value="1"> Rarely</label>
+            <label><input type="radio" name="q5" value="2"> Sometimes</label>
+            <label><input type="radio" name="q5" value="3"> Often</label>
+            <label><input type="radio" name="q5" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>10. How often do you feel shame about the event?</label>
-        <div class="options">
-          <label><input type="radio" name="q10" value="0"> Never</label>
-          <label><input type="radio" name="q10" value="1"> Rarely</label>
-          <label><input type="radio" name="q10" value="2"> Sometimes</label>
-          <label><input type="radio" name="q10" value="3"> Often</label>
-          <label><input type="radio" name="q10" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>6. How often do you feel irritable or have angry outbursts?</label>
+          <div class="options">
+            <label><input type="radio" name="q6" value="0"> Never</label>
+            <label><input type="radio" name="q6" value="1"> Rarely</label>
+            <label><input type="radio" name="q6" value="2"> Sometimes</label>
+            <label><input type="radio" name="q6" value="3"> Often</label>
+            <label><input type="radio" name="q6" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>11. How often do you feel hopeless about the future?</label>
-        <div class="options">
-          <label><input type="radio" name="q11" value="0"> Never</label>
-          <label><input type="radio" name="q11" value="1"> Rarely</label>
-          <label><input type="radio" name="q11" value="2"> Sometimes</label>
-          <label><input type="radio" name="q11" value="3"> Often</label>
-          <label><input type="radio" name="q11" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>7. How often do you feel hypervigilant (on edge)?</label>
+          <div class="options">
+            <label><input type="radio" name="q7" value="0"> Never</label>
+            <label><input type="radio" name="q7" value="1"> Rarely</label>
+            <label><input type="radio" name="q7" value="2"> Sometimes</label>
+            <label><input type="radio" name="q7" value="3"> Often</label>
+            <label><input type="radio" name="q7" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>12. How often do you feel a sense of danger even when there is none?</label>
-        <div class="options">
-          <label><input type="radio" name="q12" value="0"> Never</label>
-          <label><input type="radio" name="q12" value="1"> Rarely</label>
-          <label><input type="radio" name="q12" value="2"> Sometimes</label>
-          <label><input type="radio" name="q12" value="3"> Often</label>
-          <label><input type="radio" name="q12" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>8. How often do you feel detached from others?</label>
+          <div class="options">
+            <label><input type="radio" name="q8" value="0"> Never</label>
+            <label><input type="radio" name="q8" value="1"> Rarely</label>
+            <label><input type="radio" name="q8" value="2"> Sometimes</label>
+            <label><input type="radio" name="q8" value="3"> Often</label>
+            <label><input type="radio" name="q8" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>13. How often do you feel physically tense or on edge?</label>
-        <div class="options">
-          <label><input type="radio" name="q13" value="0"> Never</label>
-          <label><input type="radio" name="q13" value="1"> Rarely</label>
-          <label><input type="radio" name="q13" value="2"> Sometimes</label>
-          <label><input type="radio" name="q13" value="3"> Often</label>
-          <label><input type="radio" name="q13" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>9. How often do you feel guilty about the event?</label>
+          <div class="options">
+            <label><input type="radio" name="q9" value="0"> Never</label>
+            <label><input type="radio" name="q9" value="1"> Rarely</label>
+            <label><input type="radio" name="q9" value="2"> Sometimes</label>
+            <label><input type="radio" name="q9" value="3"> Often</label>
+            <label><input type="radio" name="q9" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>14. How often do you feel emotionally exhausted?</label>
-        <div class="options">
-          <label><input type="radio" name="q14" value="0"> Never</label>
-          <label><input type="radio" name="q14" value="1"> Rarely</label>
-          <label><input type="radio" name="q14" value="2"> Sometimes</label>
-          <label><input type="radio" name="q14" value="3"> Often</label>
-          <label><input type="radio" name="q14" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>10. How often do you feel shame about the event?</label>
+          <div class="options">
+            <label><input type="radio" name="q10" value="0"> Never</label>
+            <label><input type="radio" name="q10" value="1"> Rarely</label>
+            <label><input type="radio" name="q10" value="2"> Sometimes</label>
+            <label><input type="radio" name="q10" value="3"> Often</label>
+            <label><input type="radio" name="q10" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>15. How often do you feel like you are reliving the event?</label>
-        <div class="options">
-          <label><input type="radio" name="q15" value="0"> Never</label>
-          <label><input type="radio" name="q15" value="1"> Rarely</label>
-          <label><input type="radio" name="q15" value="2"> Sometimes</label>
-          <label><input type="radio" name="q15" value="3"> Often</label>
-          <label><input type="radio" name="q15" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>11. How often do you feel hopeless about the future?</label>
+          <div class="options">
+            <label><input type="radio" name="q11" value="0"> Never</label>
+            <label><input type="radio" name="q11" value="1"> Rarely</label>
+            <label><input type="radio" name="q11" value="2"> Sometimes</label>
+            <label><input type="radio" name="q11" value="3"> Often</label>
+            <label><input type="radio" name="q11" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>16. How often do you feel like you are in a daze or disconnected from reality?</label>
-        <div class="options">
-          <label><input type="radio" name="q16" value="0"> Never</label>
-          <label><input type="radio" name="q16" value="1"> Rarely</label>
-          <label><input type="radio" name="q16" value="2"> Sometimes</label>
-          <label><input type="radio" name="q16" value="3"> Often</label>
-          <label><input type="radio" name="q16" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>12. How often do you feel a sense of danger even when there is none?</label>
+          <div class="options">
+            <label><input type="radio" name="q12" value="0"> Never</label>
+            <label><input type="radio" name="q12" value="1"> Rarely</label>
+            <label><input type="radio" name="q12" value="2"> Sometimes</label>
+            <label><input type="radio" name="q12" value="3"> Often</label>
+            <label><input type="radio" name="q12" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>17. How often do you feel like you are unable to trust others?</label>
-        <div class="options">
-          <label><input type="radio" name="q17" value="0"> Never</label>
-          <label><input type="radio" name="q17" value="1"> Rarely</label>
-          <label><input type="radio" name="q17" value="2"> Sometimes</label>
-          <label><input type="radio" name="q17" value="3"> Often</label>
-          <label><input type="radio" name="q17" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>13. How often do you feel physically tense or on edge?</label>
+          <div class="options">
+            <label><input type="radio" name="q13" value="0"> Never</label>
+            <label><input type="radio" name="q13" value="1"> Rarely</label>
+            <label><input type="radio" name="q13" value="2"> Sometimes</label>
+            <label><input type="radio" name="q13" value="3"> Often</label>
+            <label><input type="radio" name="q13" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>18. How often do you feel like you are unable to experience positive emotions?</label>
-        <div class="options">
-          <label><input type="radio" name="q18" value="0"> Never</label>
-          <label><input type="radio" name="q18" value="1"> Rarely</label>
-          <label><input type="radio" name="q18" value="2"> Sometimes</label>
-          <label><input type="radio" name="q18" value="3"> Often</label>
-          <label><input type="radio" name="q18" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>14. How often do you feel emotionally exhausted?</label>
+          <div class="options">
+            <label><input type="radio" name="q14" value="0"> Never</label>
+            <label><input type="radio" name="q14" value="1"> Rarely</label>
+            <label><input type="radio" name="q14" value="2"> Sometimes</label>
+            <label><input type="radio" name="q14" value="3"> Often</label>
+            <label><input type="radio" name="q14" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>19. How often do you feel like you are unable to cope with daily stressors?</label>
-        <div class="options">
-          <label><input type="radio" name="q19" value="0"> Never</label>
-          <label><input type="radio" name="q19" value="1"> Rarely</label>
-          <label><input type="radio" name="q19" value="2"> Sometimes</label>
-          <label><input type="radio" name="q19" value="3"> Often</label>
-          <label><input type="radio" name="q19" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>15. How often do you feel like you are reliving the event?</label>
+          <div class="options">
+            <label><input type="radio" name="q15" value="0"> Never</label>
+            <label><input type="radio" name="q15" value="1"> Rarely</label>
+            <label><input type="radio" name="q15" value="2"> Sometimes</label>
+            <label><input type="radio" name="q15" value="3"> Often</label>
+            <label><input type="radio" name="q15" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <div class="question">
-        <label>20. How often do you feel like you are unable to move on from the event?</label>
-        <div class="options">
-          <label><input type="radio" name="q20" value="0"> Never</label>
-          <label><input type="radio" name="q20" value="1"> Rarely</label>
-          <label><input type="radio" name="q20" value="2"> Sometimes</label>
-          <label><input type="radio" name="q20" value="3"> Often</label>
-          <label><input type="radio" name="q20" value="4"> Always</label>
+      
+        <div class="form-group">
+          <label>16. How often do you feel like you are in a daze or disconnected from reality?</label>
+          <div class="options">
+            <label><input type="radio" name="q16" value="0"> Never</label>
+            <label><input type="radio" name="q16" value="1"> Rarely</label>
+            <label><input type="radio" name="q16" value="2"> Sometimes</label>
+            <label><input type="radio" name="q16" value="3"> Often</label>
+            <label><input type="radio" name="q16" value="4"> Always</label>
+          </div>
         </div>
-      </div>
-
-      <button type="submit">Generate Report</button>
-    </form>
+      
+        <div class="form-group">
+          <label>17. How often do you feel like you are unable to trust others?</label>
+          <div class="options">
+            <label><input type="radio" name="q17" value="0"> Never</label>
+            <label><input type="radio" name="q17" value="1"> Rarely</label>
+            <label><input type="radio" name="q17" value="2"> Sometimes</label>
+            <label><input type="radio" name="q17" value="3"> Often</label>
+            <label><input type="radio" name="q17" value="4"> Always</label>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label>18. How often do you feel like you are unable to experience positive emotions?</label>
+          <div class="options">
+            <label><input type="radio" name="q18" value="0"> Never</label>
+            <label><input type="radio" name="q18" value="1"> Rarely</label>
+            <label><input type="radio" name="q18" value="2"> Sometimes</label>
+            <label><input type="radio" name="q18" value="3"> Often</label>
+            <label><input type="radio" name="q18" value="4"> Always</label>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label>19. How often do you feel like you are unable to cope with daily stressors?</label>
+          <div class="options">
+            <label><input type="radio" name="q19" value="0"> Never</label>
+            <label><input type="radio" name="q19" value="1"> Rarely</label>
+            <label><input type="radio" name="q19" value="2"> Sometimes</label>
+            <label><input type="radio" name="q19" value="3"> Often</label>
+            <label><input type="radio" name="q19" value="4"> Always</label>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label>20. How often do you feel like you are unable to move on from the event?</label>
+          <div class="options">
+            <label><input type="radio" name="q20" value="0"> Never</label>
+            <label><input type="radio" name="q20" value="1"> Rarely</label>
+            <label><input type="radio" name="q20" value="2"> Sometimes</label>
+            <label><input type="radio" name="q20" value="3"> Often</label>
+            <label><input type="radio" name="q20" value="4"> Always</label>
+          </div>
+        </div>
+      
+        <!-- Consent -->
+        <div class="form-group consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I consent to the use of my data for generating this report.</label>
+        </div>
+      
+        <!-- Submit Button -->
+        <button type="submit">Generate Report</button>
+      </form>
 
     <!-- Report Section -->
     <div id="report" class="report-section hidden">
@@ -317,8 +439,14 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    Developed with <span>❤</span> by rektor | 2025
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
+    // Prevent form submission from refreshing the page
     document.getElementById('traumaForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
